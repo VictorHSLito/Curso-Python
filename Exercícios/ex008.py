@@ -196,3 +196,4 @@ elif escolha == 3 and computador == 3:
 else:
     print('Por favor escolha uma opção válida.')
 print('-='*45)'''
+
