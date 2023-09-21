@@ -29,7 +29,7 @@ print(f"Após as análises {nome}, concluímos que você tem {idade} anos e o vo
 # E outro chamado show, que será um valor lógico (opcional) indicando se será mostrado ou não na tela o processo de cálculo do fatorial.
 
 
-def fatorial(num, mostrar=''):
+'''def fatorial(num, mostrar=''):
     """
     Calcula o Fatorial de um número
     :param num: Para o fatorial do número ao ser calculado
@@ -48,4 +48,26 @@ def fatorial(num, mostrar=''):
     return fat
 
 
-print(fatorial(5, True))
+print(fatorial(5, True))'''
+
+# Faça um programa que tenha uma função chamada ficha(), que receba dois parâmetros opcionais: o nome de um jogador e quantos gols ele marcou.
+# O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum dado não tenha sido informado corretamente.
+
+
+def ficha(nome='<não informado>', gols = 0):
+    print(f"O jogador {nome} fez {gols} gols(s) durante o campeonato.")
+
+
+jogador = str(input("Qual o nome do jogador? "))
+quant = str(input("Quantos gols ele fez? "))
+
+if quant.isnumeric():
+    quant = int(quant)
+else:
+    quant = 0
+
+if jogador.strip() == "":
+    ficha(gols=quant)
+else:
+    ficha(jogador, quant)
+    
