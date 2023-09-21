@@ -53,8 +53,7 @@ print(fatorial(5, True))'''
 # Faça um programa que tenha uma função chamada ficha(), que receba dois parâmetros opcionais: o nome de um jogador e quantos gols ele marcou.
 # O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum dado não tenha sido informado corretamente.
 
-
-def ficha(nome='<não informado>', gols = 0):
+'''def ficha(nome='<não informado>', gols = 0):
     print(f"O jogador {nome} fez {gols} gols(s) durante o campeonato.")
 
 
@@ -69,5 +68,24 @@ else:
 if jogador.strip() == "":
     ficha(gols=quant)
 else:
-    ficha(jogador, quant)
-    
+    ficha(jogador, quant)'''
+
+# Crie um programa que tenha a função leiaInt(), que vai funcionar de forma semelhante a função input() do Python
+# Só que fazendo a validação para aceitar apenas um valor numérico. Ex: n = leiaInt(‘Digite um n: ‘)
+
+def leiaInt(arg):
+    validação = False
+    valor = 0
+    while True:
+        n = str(input(arg))
+        if n.isnumeric():
+            valor = int(n)
+            validação = True
+        else:
+            print("Por favor digite um número")
+        if validação:
+            break
+    return valor
+
+n = leiaInt("Digite um número: ")
+print(f"Você digitou o número {n}")
