@@ -73,7 +73,7 @@ else:
 # Crie um programa que tenha a função leiaInt(), que vai funcionar de forma semelhante a função input() do Python
 # Só que fazendo a validação para aceitar apenas um valor numérico. Ex: n = leiaInt(‘Digite um n: ‘)
 
-def leiaInt(arg):
+'''def leiaInt(arg):
     validação = False
     valor = 0
     while True:
@@ -88,4 +88,29 @@ def leiaInt(arg):
     return valor
 
 n = leiaInt("Digite um número: ")
-print(f"Você digitou o número {n}")
+print(f"Você digitou o número {n}")'''
+
+# Faça um programa que tenha uma função notas() que pode receber várias notas de alunos e vai retornar um dicionário com as seguintes informações:
+# 1° - Quantidade de notas, 2° - A maior nota, 3° – A menor nota, 4° – A média da turma, 5° – A situação (opcional)
+
+def notas(*num, sit=False):
+    soma = 0
+    for i in list(num):
+        soma += i
+    media = soma/len(num)
+
+    dicionario = {"Total": len(num), "Maior": max(*num), "Menor": min(*num), "Média": media}
+
+    if sit:
+        if 5 <= media < 7:
+            dicionario['situação'] = 'Média'
+        elif media < 5:
+            dicionario['situação'] = 'Ruim'
+        else:
+            dicionario['situação'] = 'Excelente'
+
+    return dicionario
+
+
+resp = notas(5.5, 6.0, 3.2, sit=True)
+print(resp)
