@@ -93,7 +93,7 @@ print(f"Você digitou o número {n}")'''
 # Faça um programa que tenha uma função notas() que pode receber várias notas de alunos e vai retornar um dicionário com as seguintes informações:
 # 1° - Quantidade de notas, 2° - A maior nota, 3° – A menor nota, 4° – A média da turma, 5° – A situação (opcional)
 
-def notas(*num, sit=False):
+'''def notas(*num, sit=False):
     soma = 0
     for i in list(num):
         soma += i
@@ -113,4 +113,36 @@ def notas(*num, sit=False):
 
 
 resp = notas(5.5, 6.0, 3.2, sit=True)
-print(resp)
+print(resp)'''
+
+# Faça um mini-sistema que utilize o Interactive Help do Python. O usuário vai digitar o comando e o manual vai aparecer.
+# Quando o usuário digitar a palavra ‘FIM’, o programa se encerrará.
+
+cores = ('\033[m'  # 0 - Sem cores
+         '\033[0;30;41m'  # 1 - Vermelho
+         '\033[0;30;42m'  # 2 - Verde
+         '\033[0;30;43m'  # 3 - Amarelo
+         '\033[0;30;44m'  # 4 - Azul
+         '\033[0;30;45m'  # 5 - Roxo
+         '\033[7;30m')    # 6 - Branco
+def ajuda(arg):
+    help(arg)
+
+
+def titulo(msg, cor=0):
+    tam = len(msg) + 4
+    print("~" * tam)
+    print(f'  {msg}')
+    print("~" * tam)
+    print(cores[0], end='')
+
+
+comando = ""
+while True:
+    titulo("Sistema de Ajuda PyHelp", 1)
+    comando = str(input("Função ou Biblioteca: "))
+    if comando.upper() == "FIM":
+        break
+    else:
+        ajuda(comando)
+titulo("Até Logo!", 2)
