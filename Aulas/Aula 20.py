@@ -1,3 +1,5 @@
+# Funções
+
 def soma(a, b):       # Funções são como "rotinas", são executadas sempre que chamadas.
     s = a + b         # Sendo as vezes necessário definir um parâmetro ou não.
     print(s)
