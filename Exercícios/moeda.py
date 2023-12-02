@@ -10,3 +10,7 @@ def metade(arg):
 
 def aumento(arg):
     return arg*1.1
+
+
+def moeda(preço = 0, moeda = 'R$'):
+    return f'{moeda}{preço:.2f}'.replace('.', ',')
