@@ -12,7 +12,7 @@ print(f'O aumento de 10% de R${preço} é {moeda.aumento(preço)}')'''
 
 # Adapte o código do desafio #107, criando uma função adicional chamada moeda() que consiga mostrar os números como um valor monetário formatado
 
-print(f'A metade de R${moeda.moeda(preço)} é {moeda.moeda(moeda.metade(preço))}')
-print(f'O dobro de R${moeda.moeda(preço)} é {moeda.moeda(moeda.dobro(preço))}')
-print(f'O triplo de R${moeda.moeda(preço)} é {moeda.moeda(moeda.triplo(preço))}')
-print(f'O aumento de 10% de R${moeda.moeda(preço)} é {moeda.moeda(moeda.aumento(preço))}')
+print(f'A metade de {moeda.moeda(preço)} é {moeda.moeda(moeda.metade(preço))}')
+print(f'O dobro de {moeda.moeda(preço)} é {moeda.moeda(moeda.dobro(preço))}')
+print(f'O triplo de {moeda.moeda(preço)} é {moeda.moeda(moeda.triplo(preço))}')
+print(f'O aumento de 10% de {moeda.moeda(preço)} é {moeda.moeda(moeda.aumento(preço))}')
