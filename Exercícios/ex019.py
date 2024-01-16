@@ -13,7 +13,7 @@ print(f'Reduzindo 12% de {moeda.moeda(preço)} é {moeda.diminuir(preço, 12, Tr
 # Adicione o módulo moeda.py criado nos desafios anteriores, uma função chamada resumo()
 # Que mostre na tela algumas informações geradas pelas funções que já temos no módulo criado até aqui
 
-import moeda
+from Exercícios.utilidadesCeV import moeda
 
 preço = float(input("Digite um preço: R$ "))
 moeda.resumo(preço)
