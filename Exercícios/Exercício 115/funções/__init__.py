@@ -1,25 +1,35 @@
+cadastro = []
+
 def menu():
-    print(30*"-")
-    print("MENU PRINCIPAL".center(30))
-    print(30*"-")
-
-    print("1 - Ver pessoas cadastradas\n"
-          "2 - Cadastrar uma nova pessoa\n"
-          "3 - Sair do programa")
-    print(30 * "-")
-
     while True:
-        opção = leiaInt(input("Sua opção: "))
+        print(30 * "-")
+        print("MENU PRINCIPAL".center(30))
+        print(30 * "-")
+
+        print("\033[33m1\033[m"" - " "\033[34mVer pessoas cadastradas\033[m\n"
+              "\033[33m2\033[m" " - " "\033[34mCadastrar uma nova pessoa\033[m\n"
+              "\033[33m3\033[m" " - " "\033[34mSair do programa\033[34m")
+        print(30 * "-")
+
+        opção = leiaInt("Sua opção: ")
         if opção == 1:
             lista()
         elif opção == 2:
             cadastrar()
+        elif opção == 3:
+            print("O programa será finalizado, obrigado")
+            finalizar()
+            break
         else:
-            return
-        break
+            print("\033[31mOpção inválida! Tente novamente\033[m")
 
 
 def lista():
+    print(30 * '-')
+    print("PESSOAS CADASTRADAS".center(30))
+    print(30 * '-')
+    lerarquivo()
+
     return
 
 
@@ -31,7 +41,6 @@ def cadastrar():
     nome = str(input("Digite o nome da pessoa: "))
     idade = int(input("Digite a idade dessa pessoa: "))
 
-    cadastro = list()
     cadastro.append(nome)
     cadastro.append(idade)
     print("Pessoa cadastrada com sucesso!")
@@ -54,3 +63,11 @@ def leiaInt(arg):
             return None
         else:
             return n
+
+def lerarquivo():
+    try:
+        a = open("pessoas.txt", 'rt')
+    except:
+        print('Erro ao ler o arquivo')
+    else:
+        print(a.readlines())
