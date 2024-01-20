@@ -1,5 +1,6 @@
 # Crie um pequeno sistema modularizado que permite cadastrar pessoas pelo seu nome e idade em um arquivo de txt simples
 # O sistema vai ter somente duas opções: Cadastar uma nova pessoa e mostrar a listagem.
+cadastro = []
 
 
 def menu():
@@ -26,8 +27,12 @@ def menu():
             print("\033[31mOpção inválida! Tente novamente\033[m")
 
 
-
 def lista():
+    print(30 * '-')
+    print("PESSOAS CADASTRADAS".center(30))
+    print(30 * '-')
+    lerarquivo()
+
     return
 
 
@@ -39,7 +44,6 @@ def cadastrar():
     nome = str(input("Digite o nome da pessoa: "))
     idade = int(input("Digite a idade dessa pessoa: "))
 
-    cadastro = list()
     cadastro.append(nome)
     cadastro.append(idade)
     print("Pessoa cadastrada com sucesso!")
@@ -62,6 +66,15 @@ def leiaInt(arg):
             return None
         else:
             return n
+
+
+def lerarquivo():
+    try:
+        a = open("pessoas.txt", 'rt')
+    except:
+        print('Erro ao ler o arquivo')
+    else:
+        print(a.readlines())
 
 
 menu()
