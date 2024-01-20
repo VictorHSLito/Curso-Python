@@ -1,4 +1,3 @@
-cadastro = []
 
 def menu():
     while True:
@@ -15,7 +14,7 @@ def menu():
         if opção == 1:
             lista()
         elif opção == 2:
-            cadastrar()
+            opc2()
         elif opção == 3:
             print("O programa será finalizado, obrigado")
             finalizar()
@@ -28,23 +27,18 @@ def lista():
     print(30 * '-')
     print("PESSOAS CADASTRADAS".center(30))
     print(30 * '-')
-    lerarquivo()
-
+    lerArquivo()
     return
 
 
-def cadastrar():
+def opc2():
     print(30*'-')
     print("NOVO CADASTRO".center(30))
     print(30*'-')
 
     nome = str(input("Digite o nome da pessoa: "))
-    idade = int(input("Digite a idade dessa pessoa: "))
-
-    cadastro.append(nome)
-    cadastro.append(idade)
-    print("Pessoa cadastrada com sucesso!")
-    print(f'A pessoa {nome} e de idade {idade} foi cadastrada com sucesso no sistema!')
+    idade = leiaInt("Digite a idade dessa pessoa: ")
+    cadastrar('pessoas.txt', nome, idade)
 
 
 def finalizar():
@@ -64,10 +58,29 @@ def leiaInt(arg):
         else:
             return n
 
-def lerarquivo():
+def lerArquivo():
     try:
         a = open("pessoas.txt", 'rt')
     except:
         print('Erro ao ler o arquivo')
     else:
-        print(a.readlines())
+        for linha in a:
+            dado = linha.split(';')
+            dado[1]= dado[1].replace('\n', '')
+            print(f"{dado[0]:<30}{dado[1]:>3} anos")
+    finally:
+        a.close()
+
+def cadastrar(arq, nome='Sem nome', idade=0):
+    try:
+        a = open(arq, 'at')
+    except:
+        print("Houve um erro ao cadastrar!")
+    else:
+        try:
+            a.write(f'{nome};{idade}\n')
+        except:
+            print("Houve um erro ao escrever o arquivo!")
+        else:
+            print(f"Novo registro de {nome} cadastrado")
+            a.close()
