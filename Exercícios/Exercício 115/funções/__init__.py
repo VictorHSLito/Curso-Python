@@ -1,5 +1,5 @@
 
-def menu():
+def menu():   # Função que repetirá o Menu ao fim de cada interação
     while True:
         print(30 * "-")
         print("MENU PRINCIPAL".center(30))
@@ -23,7 +23,7 @@ def menu():
             print("\033[31mOpção inválida! Tente novamente\033[m")
 
 
-def lista():
+def lista():   # Função que mostrará a lista de pessoas no arquivo txt já cadastradas
     print(30 * '-')
     print("PESSOAS CADASTRADAS".center(30))
     print(30 * '-')
@@ -31,7 +31,7 @@ def lista():
     return
 
 
-def opc2():
+def opc2():   # Função que cadastrará um novo registro no arquivo txt
     print(30*'-')
     print("NOVO CADASTRO".center(30))
     print(30*'-')
@@ -41,11 +41,11 @@ def opc2():
     cadastrar('pessoas.txt', nome, idade)
 
 
-def finalizar():
+def finalizar():  # Função que finaliza o programa após o opção 3 ser escolhida
     exit()
 
 
-def leiaInt(arg):
+def leiaInt(arg):  # Função auxiliar que obriga o usuário à digitar um número inteiro
     while True:
         try:
             n = int(input(arg))
@@ -58,7 +58,8 @@ def leiaInt(arg):
         else:
             return n
 
-def lerArquivo():
+
+def lerArquivo():  # Função que irá manipular os dados no arquivo txt
     try:
         a = open("pessoas.txt", 'rt')
     except:
@@ -66,12 +67,12 @@ def lerArquivo():
     else:
         for linha in a:
             dado = linha.split(';')
-            dado[1]= dado[1].replace('\n', '')
+            dado[1] = dado[1].replace('\n', '')
             print(f"{dado[0]:<30}{dado[1]:>3} anos")
     finally:
         a.close()
 
-def cadastrar(arq, nome='Sem nome', idade=0):
+def cadastrar(arq, nome='Sem nome', idade=0):   # Função responsável por cadastrar novos usuários no arquivo txt
     try:
         a = open(arq, 'at')
     except:
